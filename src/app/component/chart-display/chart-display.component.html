@@ -1,0 +1,13 @@
+<div class="col-md-12"  style="text-align: center">
+  <h1 class="mb-3 mt-5">Charts</h1>
+  <div>
+    <div class="card">
+      <app-bar-chart *ngIf="histogram_data.length" [data]="histogram_data"></app-bar-chart>
+    </div>
+    <div class="card">
+      <app-line-chart *ngIf="lineChart_data.length" [data]="lineChart_data"></app-line-chart>
+    </div>
+  </div>
+</div>
+
+
