@@ -1,27 +1,42 @@
-# KapsarcTestAngular
+# Kapsarc Test - Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
 
-## Development server
+## Problem Statment 
+The oil-production data includes a number of parameters, which are irreleavant to the end-user. Moreover, many of the given parameters can be discarded to create a clearer view for the oil Export. In addition, the current data shape is driven by the stated information, however, having a few dimensions opens up a better data shape option such as the following:
+country | month-year | value
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Design
+The application should have the three main component: Database, Backend, and Frontend. 
+(DB) => The database will be used to store the data in its new format and shape. 
+(Backend) => The backend will connect to the data source, data target and frontend. In addition to its functionality as a data wrangling unit.
+(Frontend) => The front will display the new table along with charts reflecting data stats
 
-## Code scaffolding
+## Solution - implementation 
+(DB) => the database was developed with Sqlite 3 and it consist of tables: oil_export (original data), oil_export_avg (for average export for each country), and oil_export_mont_total (for the total of exports per month)
+(Backend) => backend was developed with Python3 & Flask. It connects to the data source, scrape the data, transform, store and expose via APIs
+(Frontend) => finall, the frontend was developed with Angular 8 & bootstrap. It connects to the backend APIs and display the data in tables, and charts
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Dependencies
+(DB) => none
 
-## Build
+(Backend)
+- BeautifulSoup
+- seleniumwire
+- selenium
+- sqlite3
+- Flask
+- CORS
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+(Frontend) 
+- Angular 8
+- Bootstrap 4
 
-## Running unit tests
+## API
+(Backend)
+- get data => /
+- get average => /export_avg
+- get total => /month_sum
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+(Frontend)
+- data table => /
+- charts => /charts
